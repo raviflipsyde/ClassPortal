@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  resources :instructors
+  resources :students
+  resources :admins
+
   get 'sessions/new'
 
   resources :users
+
   root 'static_pages#home'
-
   get 'help'    => 'static_pages#help'
-
   get 'signup'  => 'users#new'
 
   get    'login'   => 'sessions#new'
