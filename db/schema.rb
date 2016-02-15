@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160215201649) do
 
   create_table "enrollments", force: :cascade do |t|
     t.string   "grade"
+    t.boolean  "estatus"
     t.integer  "student_id"
     t.integer  "course_id"
     t.datetime "created_at", null: false
