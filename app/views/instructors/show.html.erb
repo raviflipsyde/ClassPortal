@@ -1,6 +1,49 @@
 <h2>Instuctors Homepage</h2>
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @instructor.name %>
+
+  &nbsp;
+  <strong>Email:</strong>
+  <%= @instructor.email %>
+</p>
+
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Number</td>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Starts On</td>
+      <td>Ends on</td>
+      <td>Status</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @courses.each do |course| %>
+        <tr>
+
+          <td><%= course.number %></td>
+          <td><%= course.title %></td>
+          <td><%= course.description %></td>
+          <td><%= course.startdate %></td>
+          <td><%= course.enddate %></td>
+          <td><%= course.status %></td>
+          <td><%= link_to 'Details', displaycourse_path(course.id) %></td>
+          <td><%= link_to 'Enrollments', displayenrollmentforcourse_path(course.id) %></td>
+          <td><%= link_to 'Grades', instructors_path %></td>
+          <td><%= link_to 'Materials', instructors_path %></td>
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <%= link_to 'Back', instructors_path %>
 
