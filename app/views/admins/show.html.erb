@@ -1,8 +1,40 @@
 <h2> Admin Homepage</h2>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+
+<br> <br>
+<div>
+  <h3>Admin Management</h3>
+  <%= link_to 'New Admin', new_admin_path %>
+  <br>
+  <%= link_to 'Edit Profile', edit_admin_path(@admin) %>
+  <br>
+  <%= link_to 'View Admins', admins_path %>
+</div>
+
+<div>
+  <h3>Course Management</h3>
+  <%= link_to 'New Course', new_course_path %>
+  <br>
+  <%= link_to 'View Courses', course_path %>
+  <br>
+  <%= link_to 'Post grades', admins_path %>
+</div>
+
+
+<div>
+  <h3>Instructor/Student Management</h3>
+  <%= link_to 'New Instructor', new_instructor_path%>
+  <br>
+  <%= link_to 'View Instructors', instructor_path %>
+  <br>
+  <%= link_to 'New Student', new_student_path%>
+  <br>
+  <%= link_to 'View Student', student_path %>
+
+</div>
+
+
 <div>
 Actions
 </div>
