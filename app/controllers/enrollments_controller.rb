@@ -12,6 +12,18 @@ class EnrollmentsController < ApplicationController
   def show
   end
 
+  # GET /enrollments/course/1
+  # GET /enrollments/course/1.json
+  def showcourse
+    @enrollments = Enrollment.includes(:student).where("course_id = ?",params[:id])
+  #  @enrollments = Enrollment.find_by_course_id(params[:id])
+    puts "-----------------------------------------ENR START-------------------------------------"
+    @enrollments.each do |obj|
+      obj.estatus=false if !obj.estatus?
+    end
+    puts "-----------------------------------------ENR END---------------------------------------"
+  end
+
   # GET /enrollments/new
   def new
     @enrollment = Enrollment.new

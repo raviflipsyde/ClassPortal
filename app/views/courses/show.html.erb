@@ -1,3 +1,4 @@
+<h2> Course Details Page</h2>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -30,5 +31,29 @@
   <%= @course.status %>
 </p>
 
+<p>
+  <strong>Enrollments</strong>
+</p>
+
+<table>
+  <thead>
+  <tr>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @course.enrollments.each do |enr| %>
+      <tr>
+        <td><%= enr.student.name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<%= link_to 'Edit Enrollments', edit_course_path(@course) %>
+<br>
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
