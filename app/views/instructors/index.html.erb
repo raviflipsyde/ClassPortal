@@ -2,21 +2,27 @@
 
 <h1>Listing Instructors</h1>
 
-<table>
+<table class="table">
   <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th colspan="3"> Actions</th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @instructors.each do |instructor| %>
+  <% @instructors.each do |instructor| %>
       <tr>
-        <td><%= link_to 'Show', instructor %></td>
-        <td><%= link_to 'Edit', edit_instructor_path(instructor) %></td>
-        <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= instructor.name %></td>
+        <td><%= instructor.email %></td>
+
+        <td><%= link_to 'Show', instructor , class: "btn btn-sm btn-info"%></td>
+        <td><%= link_to 'Edit', edit_instructor_path(instructor), class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to 'Destroy', instructor, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-sm btn-danger"%></td>
+
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
