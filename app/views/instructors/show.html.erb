@@ -34,8 +34,7 @@
           <td><%= course.enddate %></td>
           <td><%= course.status %></td>
           <td><%= link_to 'Details', displaycourse_path(course.id) %></td>
-          <td><%= link_to 'Enrollments', displayenrollmentforcourse_path(course.id) %></td>
-          <td><%= link_to 'Grades', displayenrollmentforcourse_path(course.id)  %></td>
+          <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id) %></td>
           <td><%= link_to 'Materials', instructors_path %></td>
 
         </tr>
