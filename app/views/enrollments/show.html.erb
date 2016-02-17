@@ -7,12 +7,12 @@
 
 <p>
   <strong>Student:</strong>
-  <%= @enrollment.student %>
+  <%= @enrollment.student.name %>
 </p>
 
 <p>
   <strong>Course:</strong>
-  <%= @enrollment.course %>
+  <%= @enrollment.course.title %>
 </p>
 
 <%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
