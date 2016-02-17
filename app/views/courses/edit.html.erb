@@ -1,6 +1,12 @@
 <h1>Editing Course</h1>
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Show', @course, class: "myButton"  %>
+&nbsp|
+<%= link_to 'Back', courses_path, class: "myButton"  %>

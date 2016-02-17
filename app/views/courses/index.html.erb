@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <h1>Listing Courses</h1>
-
+<body background="background1.jpg">
 <table>
   <thead>
     <tr>
@@ -40,5 +44,5 @@
 
 <br>
 <% if (@is_admin == true) %>
-<%= link_to 'New Course', new_course_path %>
+<%= link_to 'New Course', new_course_path, class: "myButton" %>
 <%end%>

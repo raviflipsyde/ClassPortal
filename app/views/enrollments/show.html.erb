@@ -1,3 +1,8 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +20,5 @@
   <%= @enrollment.course.title %>
 </p>
 
-<%= link_to 'Edit', edit_enrollment_path(@enrollment) %> |
-<%= link_to 'Back', enrollments_path %>
+<%= link_to 'Edit', edit_enrollment_path(@enrollment), class: "myButton"  %> |
+<%= link_to 'Back', enrollments_path, class: "myButton"  %>

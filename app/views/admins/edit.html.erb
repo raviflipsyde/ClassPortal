@@ -1,6 +1,11 @@
 <h1>Editing Admin</h1>
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @admin %> |
-<%= link_to 'Back', admins_path %>
+<%= link_to 'Show', @admin, class: "myButton"  %> |
+<%= link_to 'Back', admins_path, class: "myButton"  %>

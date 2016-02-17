@@ -1,6 +1,11 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <h1>Editing Enrollment</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @enrollment %> |
-<%= link_to 'Back', enrollments_path %>
+<%= link_to 'Show', @enrollment, class: "myButton"  %> |
+<%= link_to 'Back', enrollments_path, class: "myButton"  %>

@@ -1,3 +1,9 @@
+
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <h2> Course Details Page</h2>
 <p id="notice"><%= notice %></p>
 
@@ -36,5 +42,5 @@
 <br>
 <br>
 <br>
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Edit', edit_course_path(@course), class: "myButton"  %> |
+<%= link_to 'Back', courses_path, class: "myButton"  %>

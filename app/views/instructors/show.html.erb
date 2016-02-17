@@ -1,3 +1,8 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <h2>Instuctors Homepage</h2>
 <p id="notice"><%= notice %></p>
 
@@ -43,8 +48,8 @@
   </table>
 
 </div>
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>
+<%= link_to 'Edit', edit_instructor_path(@instructor), class: "myButton"  %> |
+<%= link_to 'Back', instructors_path, class: "myButton"  %>
 
 
 <br><br>
