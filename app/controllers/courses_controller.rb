@@ -5,6 +5,11 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @courses = Course.all
+    if (current_user.type == 'Admin')
+      @is_admin = true
+    else
+      @is_admin = false
+    end
   end
 
   # GET /courses/1

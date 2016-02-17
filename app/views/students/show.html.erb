@@ -11,3 +11,25 @@ View Details of a Course<br>
 Enroll in a course request<br>
 Drop a course <br>
 View own Course history <br>
+<table>
+  <thead>
+  <tr>
+    <th>Course Name</th>
+    <th>Grade</th>
+    <th>Status</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @enrollments.each do |enrollment| %>
+      <tr>
+        <td><%= enrollment.course %></td>
+        <td><%= enrollment.grade %></td>
+        <td><%= enrollment.estatus %></td>
+        <td><%= link_to 'Show', enrollment %></td>
+        <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

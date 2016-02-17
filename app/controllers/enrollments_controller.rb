@@ -24,6 +24,7 @@ class EnrollmentsController < ApplicationController
     puts "-----------------------------------------ENR END---------------------------------------"
   end
 
+
   # GET /enrollments/new
   def new
     @enrollment = Enrollment.new
@@ -37,7 +38,6 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments.json
   def create
     @enrollment = Enrollment.new(enrollment_params)
-
     respond_to do |format|
       if @enrollment.save
         format.html { redirect_to @enrollment, notice: 'Enrollment was successfully created.' }

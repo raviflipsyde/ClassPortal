@@ -24,14 +24,21 @@
         <td><%= course.startdate %></td>
         <td><%= course.enddate %></td>
         <td><%= course.status %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if (@is_admin == true )  %>
+            <td><%= link_to 'Show', course %></td>
+            <td><%= link_to 'Edit', edit_course_path(course) %></td>
+            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%else%>
+            <td><%= link_to 'Show', course %></td>
+            <td><%= link_to 'Enroll', new_enrollment_path %></td>
+        <%end%>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if (@is_admin == true) %>
 <%= link_to 'New Course', new_course_path %>
+<%end%>

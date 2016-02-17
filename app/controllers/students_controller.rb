@@ -10,6 +10,11 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+      @enrollments = Enrollment.includes(:course).where("student_id = ?  ",params[:id])
+      #  @enrollments = Enrollment.find_by_course_id(params[:id])
+      puts "-----------------------------------------ENR START-------------------------------------"
+      puts "-----------------------------------------ENR END---------------------------------------"
+
   end
 
   # GET /students/new
