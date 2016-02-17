@@ -16,3 +16,8 @@
 !/log/.keep
 /tmp
 .idea/workspace.xml___jb_bak___
+
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/dataSources.xml
+.idea/vcs.xml

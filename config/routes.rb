@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :students
   resources :admins
 
-
-  get '/enrollments/course/:id'  => 'enrollments#showcourse'
+  get '/courses/:id' => 'courses#show', as: :displaycourse
+  get '/enrollments/course/:id'  => 'enrollments#showcourse', as: :displayenrollmentforcourse
   get 'sessions/new'
 
   resources :users
