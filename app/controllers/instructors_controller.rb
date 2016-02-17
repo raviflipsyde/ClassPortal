@@ -10,8 +10,7 @@ class InstructorsController < ApplicationController
   # GET /instructors/1
   # GET /instructors/1.json
   def show
-    @courses = Course.all
-
+    @courses =  Course.joins(:teaches).where("teaches.instructor_id = ?",params[:id] )
   end
 
   # GET /instructors/new
