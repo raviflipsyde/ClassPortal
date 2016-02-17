@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @cmaterial.content %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @cmaterial.course %>
+</p>
+
+<%= link_to 'Edit', edit_cmaterial_path(@cmaterial) %> |
+<%= link_to 'Back', cmaterials_path %>

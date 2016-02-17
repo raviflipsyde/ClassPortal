@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215201649) do
+ActiveRecord::Schema.define(version: 20160217043847) do
+
+  create_table "cmaterials", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cmaterials", ["course_id"], name: "index_cmaterials_on_course_id"
 
   create_table "courses", force: :cascade do |t|
     t.integer  "number"

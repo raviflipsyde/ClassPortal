@@ -17,6 +17,13 @@ class CoursesController < ApplicationController
   def show
   end
 
+  # GET courses/1/coursecmaterials
+
+  def showcoursecoursematerial
+
+    @cmater = Cmaterial.where("course_id = ?",params[:id])
+  end
+
   # GET /courses/new
   def new
     @course = Course.new

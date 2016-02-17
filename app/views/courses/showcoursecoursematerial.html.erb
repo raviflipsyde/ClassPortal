@@ -1,0 +1,28 @@
+<h2> Course Enrollment Details Page</h2>
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <strong>Enrollments</strong>
+</p>
+
+<table class="table">
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>status</td>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @cmater.each do |enr| %>
+      <tr>
+        <td><%= enr.content %></td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>

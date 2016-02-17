@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cmaterials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Course</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cmaterials.each do |cmaterial| %>
+      <tr>
+        <td><%= cmaterial.content %></td>
+        <td><%= cmaterial.course %></td>
+        <td><%= link_to 'Show', cmaterial %></td>
+        <td><%= link_to 'Edit', edit_cmaterial_path(cmaterial) %></td>
+        <td><%= link_to 'Destroy', cmaterial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cmaterial', new_cmaterial_path %>

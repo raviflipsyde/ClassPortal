@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cmaterials
   resources :teaches
   resources :enrollments
   resources :courses
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/courses/:id' => 'courses#show', as: :displaycourse
   get '/enrollments/course/:id'  => 'enrollments#showcourse', as: :displayenrollmentforcourse
+  get '/courses/:id/coursecmaterials' => 'courses#showcoursecoursematerial', as: :displaycoursecoursematerial
   get 'sessions/new'
 
   resources :users
