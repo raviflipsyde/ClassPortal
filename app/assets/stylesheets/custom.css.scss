@@ -118,6 +118,7 @@ footer ul li {
   @extend .has-error;
   .form-control {
     color: $state-danger-text;
+    width: 1000px;
   }
 }
 
