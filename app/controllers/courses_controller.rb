@@ -13,9 +13,9 @@ class CoursesController < ApplicationController
 
       #search bar
       if params[:search]
-        @courses = Course.search(params[:search]).order("Number")
+        @courses = Course.search(params[:search]).order("number")
       else
-        @courses = Course.all.order("Number")
+        @courses = Course.all.order("number")
       end
 
 
