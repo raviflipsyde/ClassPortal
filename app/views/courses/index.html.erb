@@ -29,9 +29,9 @@
         <td><%= course.enddate %></td>
         <td><%= course.status %></td>
         <% if (@is_admin == true )  %>
-            <td><%= link_to 'Show', course %></td>
-            <td><%= link_to 'Edit', edit_course_path(course) %></td>
-            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
+            <td><%= link_to 'Edit', edit_course_path(course),class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-sm btn-danger" %></td>
         <%else%>
             <td><%= link_to 'Show', course %></td>
             <td><%= link_to 'Enroll', new_enrollment_path %></td>
