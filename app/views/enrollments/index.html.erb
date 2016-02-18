@@ -18,11 +18,11 @@
   </thead>
 
   <tbody>
-    <% @enrollments.each do |enrollment| %>
+    <% @enrollments.each do |enrollment| @students=Student.joins(:enrollments).where("enrollments.student_id = Student.id") %>
       <tr>
         <td><%= enrollment.grade %></td>
-        <td><%= enrollment.student %></td>
-        <td><%= enrollment.course %></td>
+        <td><%= User.find(enrollment.student_id).name %></td>
+        <td><%= Course.find(enrollment.course_id).title%></td>
         <td><%= link_to 'Show', enrollment %></td>
         <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
         <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,3 +34,5 @@
 <br>
 
 <%= link_to 'New Enrollment', new_enrollment_path, class: "myButton"  %>
+
+</div>
