@@ -15,8 +15,16 @@
 /log/*
 !/log/.keep
 /tmp
+.idea/*
 .idea/workspace.xml___jb_bak___
 .idea/dataSources.ids
 .idea/dataSources.local.xml
 .idea/dataSources.xml
 .idea/vcs.xml
+.byebug_history
+/Capfile
+/config/deploy.rb
+/config/deploy/
+/key01.pem
+/lib/bootstrap-sass.rb
+/lib/bootstrap-sass/

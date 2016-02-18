@@ -5,6 +5,8 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
+    @curr_id = current_user.id
+
   end
 
   # GET /admins/1
@@ -54,23 +56,28 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
-    @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
-      format.json { head :no_content }
+      if @admin.id == 1
+        #flash[:error] = "User Can not be deleted"
+        format.html { redirect_to admins_url, notice: 'User can not be deleted' }
+      else
+        @admin.destroy
+        format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
+      end
     end
+
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin
-      @admin = Admin.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin
+    @admin = Admin.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_params
-      params.require(:admin).permit(:name, :email, :type, :password, :password_confirmation)
-      # params.fetch(:admin, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_params
+    params.require(:admin).permit(:name, :email, :type, :password, :password_confirmation)
+    # params.fetch(:admin, {})
+  end
 
 end
