@@ -27,7 +27,11 @@
         <td><%= course.description %></td>
         <td><%= course.startdate %></td>
         <td><%= course.enddate %></td>
-        <td><%= course.status %></td>
+        <% if course.status == true %>
+            <td>Active</td>
+                <% else %>
+            <td>Inactive</td>
+                <% end %>
         <% if (@is_admin == true )  %>
             <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
             <td><%= link_to 'Edit', edit_course_path(course),class: "btn btn-sm btn-success" %></td>
