@@ -41,6 +41,9 @@ View own Course history <br>
         <td><%= link_to 'Show', enrollment, class: "btn btn-sm btn-info" %></td>
         <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
+
   <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to 'Browse Courses', courses_path, class: "myButton" %>

@@ -17,7 +17,8 @@ class Course < ActiveRecord::Base
   def self.search(search)
     where("title LIKE ?", "%#{search}%")
     where("number LIKE ?", "%#{search}%")
-    
+    where("description LIKE ?", "%#{search}%")
+
   end
 
 end
