@@ -13,4 +13,11 @@ class Course < ActiveRecord::Base
 
   validates :description, presence: true
 
+
+  def self.search(search)
+    where("title LIKE ?", "%#{search}%")
+    where("number LIKE ?", "%#{search}%")
+    
+  end
+
 end

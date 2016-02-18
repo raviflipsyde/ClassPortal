@@ -4,6 +4,22 @@
   h1   {color:white;}
   p    {color:white;}
 </style>
+
+
+
+
+<%= form_tag(courses_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Courses" %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+
+
+
+
+
+
+
 <h1>Listing Courses</h1>
 <body background="background1.jpg">
 <table>

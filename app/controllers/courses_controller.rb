@@ -10,6 +10,16 @@ class CoursesController < ApplicationController
     else
       @is_admin = false
     end
+
+      #search bar
+      if params[:search]
+        @courses = Course.search(params[:search]).order("title")
+      else
+        @courses = Course.all.order('title')
+      end
+
+
+
   end
 
   # GET /courses/1
@@ -83,4 +93,5 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:number, :title, :description, :startdate, :enddate, :status)
     end
+
 end
