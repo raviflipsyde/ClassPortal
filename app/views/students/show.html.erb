@@ -6,8 +6,8 @@
 <h2>Student Homepage</h2>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Edit', edit_student_path(@student), class: "myButton" %> |
+<%= link_to 'Back', students_path, class: "myButton" %>
 
 <br><br>
 Edit Profile<br>
@@ -22,18 +22,19 @@ View own Course history <br>
     <th>Course Name</th>
     <th>Grade</th>
     <th>Status</th>
-    <th colspan="2"></th>
+    <th colspan="3">Actions</th>
+    <th colspan="3"></th>
   </tr>
   </thead>
 
   <tbody>
   <% @enrollments.each do |enrollment| %>
       <tr>
-        <td><%= enrollment.course %></td>
+        <td><%= Course.find(enrollment.course_id).title%></td>
         <td><%= enrollment.grade %></td>
         <td><%= enrollment.estatus %></td>
-        <td><%= link_to 'Show', enrollment %></td>
-        <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', enrollment, class: "btn btn-sm btn-info" %></td>
+        <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
   <% end %>
   </tbody>

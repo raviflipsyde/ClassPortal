@@ -13,15 +13,13 @@
       <th>Student</th>
       <th>Course</th>
       <th>Grade</th>
-      <th>View</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th colspan="3"> Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @enrollments.each do |enrollment| @students=Student.joins(:enrollments).where("enrollments.student_id = Student.id") %>
+    <% @enrollments.each do |enrollment|  %>
       <tr>
         <td><%= User.find(enrollment.student_id).name %></td>
         <td><%= Course.find(enrollment.course_id).title%></td>
