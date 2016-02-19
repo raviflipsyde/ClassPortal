@@ -17,7 +17,16 @@ class CoursesController < ApplicationController
       else
         @courses = Course.all.order("number")
       end
+    @instructor_course_map = {}
 
+    @courses.each do |course|
+      teach = Teach.find_by_course_id(course.id)
+      if !teach.nil?
+          name = Instructor.find(teach.instructor_id).name
+          @instructor_course_map[course.id] = name
+      end
+    end
+    puts @instructor_course_map.to_s
 
 
   end

@@ -24,6 +24,7 @@
       <th>Number</th>
       <th>Title</th>
       <th>Description</th>
+      <th>Instructor</th>
       <th>Startdate</th>
       <th>Enddate</th>
       <th>Status</th>
@@ -37,6 +38,7 @@
         <td><%= course.number %></td>
         <td><%= course.title %></td>
         <td><%= course.description %></td>
+        <td><%= @instructor_course_map[course.id]%></td>
         <td><%= course.startdate %></td>
         <td><%= course.enddate %></td>
         <% if course.status == true %>

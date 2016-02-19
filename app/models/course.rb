@@ -14,9 +14,9 @@ class Course < ActiveRecord::Base
   validates :description, presence: true
 
 
-  def self.search(search)
-    where("title LIKE ? or number LIKE ? or description LIKE ?", "%#{search}%","%#{search}%","%#{search}%")
-
+  def self.search(query)
+    where("Status LIKE ? or number LIKE ? or description LIKE ? ","%#{query}%", "%#{query}%", "%#{query}%")
+    #where( "title LIKE :search OR number LIKE :search OR description LIKE :search", search: "%#{search}%")
   end
 
 end
