@@ -24,7 +24,6 @@
       <th>Number</th>
       <th>Title</th>
       <th>Description</th>
-      <th>Instructor</th>
       <th>Startdate</th>
       <th>Enddate</th>
       <th>Status</th>
@@ -38,7 +37,6 @@
         <td><%= course.number %></td>
         <td><%= course.title %></td>
         <td><%= course.description %></td>
-        <td><%= @instructor_course_map[course.id]%></td>
         <td><%= course.startdate %></td>
         <td><%= course.enddate %></td>
         <% if course.status == true %>
@@ -47,10 +45,16 @@
             <td>Inactive</td>
                 <% end %>
         <% if (@is_admin == true )  %>
+<<<<<<< Updated upstream
             <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
             <td><%= link_to 'Edit', edit_course_path(course),class: "btn btn-sm btn-success" %></td>
-            <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-sm btn-danger" %></td>
+=======
+            <td><%= link_to 'Show', course, class: "btn btn-sm btn-info" %></td>
+            <td><%= link_to 'Edit', edit_course_path(course), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' },  class: "btn btn-sm btn-danger" %></td>
+>>>>>>> Stashed changes
         <%else%>
             <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
             <td><%= link_to 'Enroll', new_enrollment_path,class: "btn btn-sm btn-success" %></td>

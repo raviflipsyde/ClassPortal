@@ -5,6 +5,8 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
+    @curr_id = current_user.id
+
   end
 
   # GET /admins/1
@@ -15,6 +17,7 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    @c_id = current_user.id
   end
 
   # GET /admins/1/edit
@@ -54,10 +57,14 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
-    @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
-      format.json { head :no_content }
+      if @admin.id == 1
+        #flash[:error] = "User Can not be deleted"
+        format.html { redirect_to admins_url, notice: 'User can not be deleted' }
+      else
+        @admin.destroy
+        format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
+      end
     end
   end
 
