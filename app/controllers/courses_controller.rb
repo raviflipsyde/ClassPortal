@@ -7,8 +7,13 @@ class CoursesController < ApplicationController
     @courses = Course.all
     if (current_user.type == 'Admin')
       @is_admin = true
+      @is_student = false
+    elsif(current_user.type == 'Student')
+      @is_admin = false
+      @is_student = true
     else
       @is_admin = false
+      @is_student = false
     end
 
       #search bar
@@ -19,14 +24,14 @@ class CoursesController < ApplicationController
       end
     @instructor_course_map = {}
 
-    @courses.each do |course|
-      teach = Teach.find_by_course_id(course.id)
-      if !teach.nil?
-          name = Instructor.find(teach.instructor_id).name
-          @instructor_course_map[course.id] = name
-      end
-    end
-    puts @instructor_course_map.to_s
+    # @courses.each do |course|
+    #   teach = Teach.find_by_course_id(course.id)
+    #   if !teach.nil?
+    #       name = Instructor.find(teach.user_id).name
+    #       @instructor_course_map[course.id] = name
+    #   end
+    # end
+    # puts @instructor_course_map.to_s
 
 
   end
@@ -34,6 +39,17 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+
+  @course = Course.find(params[:id]);
+
+  @instructor_course_map = {}
+  teach = Teach.find_by_course_id(@course.id)
+  if !teach.nil?
+    name = Instructor.find(teach.user_id).name
+    @instructor_course_map[@course.id] = name
+  end
+
+
   end
 
   # GET courses/1/coursecmaterials

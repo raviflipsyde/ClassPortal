@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
-    @curr_id = current_user.id
+    @c_id = current_user.id
 
   end
 
@@ -18,6 +18,7 @@ class AdminsController < ApplicationController
   def new
     @admin = Admin.new
     @c_id = current_user.id
+
   end
 
   # GET /admins/1/edit

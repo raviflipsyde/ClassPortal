@@ -50,7 +50,11 @@
             <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
             <td><%= link_to 'Edit', edit_course_path(course),class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Add Course material', displayenrollmentforcourse_path(course.id), class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Add Instructor', addnewinstructortocourse_path(course.id), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-sm btn-danger" %></td>
+        <%elsif (@is_student) %>
+            <td><%= link_to 'Enroll this course', newstudentcourseenrollment_path(course.id ) ,:method=> :post, class: "btn btn-sm btn-info" %></td>
         <%else%>
             <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
             <td><%= link_to 'Enroll', new_enrollment_path,class: "btn btn-sm btn-success" %></td>
