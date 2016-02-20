@@ -39,11 +39,32 @@
 
 <p>
   <strong>Instructors:</strong>
-  <%= @instructor_course_map[@course.id] %>
+  <%= @instr_string %>
 </p>
 
+<%if !@cmaterial.nil? %>
+<p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Course Material</th>
+  </tr>
+  </thead>
+  <tbody>
 
 
+  <% @cmaterial.each do |cm| %>
+      <tr>
+        <td><%= cm.content %></td>
+     </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+</p>
+
+<% end%>
 <br>
 <br>
 <br>

@@ -43,12 +43,17 @@ class CoursesController < ApplicationController
   @course = Course.find(params[:id]);
 
   @instructor_course_map = {}
-  teach = Teach.find_by_course_id(@course.id)
-  if !teach.nil?
-    name = Instructor.find(teach.user_id).name
-    @instructor_course_map[@course.id] = name
-  end
+  @instr_string = ""
+  teach = Teach.where(course_id: @course.id)
 
+  if !teach.nil?
+    teach.each do |t|
+      @instr_string += Instructor.find(t.user_id).name + ", "
+    end
+
+  end
+  
+  @cmaterial = Cmaterial.where(course_id: @course.id)
 
   end
 

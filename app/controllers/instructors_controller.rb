@@ -29,7 +29,7 @@ class InstructorsController < ApplicationController
 
     respond_to do |format|
       if @instructor.save
-        format.html { redirect_to @instructor, notice: 'Instructor was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Instructor was successfully created.' }
         format.json { render :show, status: :created, location: @instructor }
       else
         format.html { render :new }
