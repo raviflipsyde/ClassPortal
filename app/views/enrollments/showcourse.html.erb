@@ -22,15 +22,18 @@
   <tbody>
   <% @enrollments.each do |enr| %>
       <tr>
-        <td><%= enr.student.name %></td>
+        <td><%= enr.user.name %></td>
         <td><%= enr.estatus %></td>
-        <td><%= enr.student_id %></td>
+        <td><%= enr.user_id %></td>
         <td><%= enr.course_id %></td>
-        <td><%= link_to 'Edit', edit_enrollment_path(enr) %></td>
+        <td><%= link_to 'Edit', edit_enrollment_path(enr),class: "btn btn-sm btn-success"  %></td>
+        <td><%= link_to 'Destroy', enr, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
+
       </tr>
   <% end %>
   </tbody>
 </table>
 
 <br>
+<%= link_to 'New Enrollment to this course', newcourseenrollment_path(1), class: "myButton"  %>
 <br>

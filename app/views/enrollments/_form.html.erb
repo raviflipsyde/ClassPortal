@@ -16,19 +16,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :grade, class:'form_lable' %><br>
     <%= f.text_area :grade %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :student_id, class:'form_lable' %><br>
-    <%= f.text_field :student_id %>
-  </div>
-  <div class="field">
+
+
+    <%= select("enrollment", "user_id", @students.collect {|r| [ r.name, r.id ] }, { :include_blank => true }, class: "form-control" )%>
+      </div>
+
+  <div class="form-group">
     <%= f.label :course_id, class:'form_lable' %><br>
     <%= f.text_field :course_id %>
   </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :estatus, class:'form_lable' %><br>
       <%= f.check_box :estatus %>
     </div>

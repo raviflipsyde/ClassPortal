@@ -22,7 +22,8 @@
   </div>
   <div class="field">
     <%= f.label :instructor_id, class:'form_lable' %><br>
-    <%= f.text_field :instructor_id %>
+    <%= select("teach", "user_id", @instr.collect {|r| [ r.name, r.id ] }, { :include_blank => true }, class: "form-control" )%>
+
   </div>
   <div class="field">
     <%= f.label :course_id, class:'form_lable' %><br>

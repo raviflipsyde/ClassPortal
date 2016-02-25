@@ -10,7 +10,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-      @enrollments = Enrollment.includes(:course).where("student_id = ?  ",params[:id])
+      @enrollments = Enrollment.includes(:course).where("user_id = ?  ",params[:id])
       #  @enrollments = Enrollment.find_by_course_id(params[:id])
       puts "-----------------------------------------ENR START-------------------------------------"
       puts "-----------------------------------------ENR END---------------------------------------"
@@ -33,7 +33,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new }
@@ -74,6 +74,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.fetch(:student, {})
+
+      params.require(:student).permit(:name, :email, :type, :password, :password_confirmation)
     end
 end

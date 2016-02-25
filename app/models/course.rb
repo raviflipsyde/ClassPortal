@@ -16,8 +16,22 @@ class Course < ActiveRecord::Base
 
   def self.search(search)
 
+    if /\A\d+\z/.match(search)
 
-    where("title LIKE ? or number LIKE ? or description LIKE ?  ", "%#{search}%","%#{search}%","%#{search}%")
+      mysearch1 = Course.where("number = ?", search.to_i)
+       puts("------------------------------------")
+        puts('a number')
+        puts(mysearch1)
+       puts("------------------------------------")
+    end
+
+    mysearch2 = Course.where("title LIKE ? or title LIKE ? or description LIKE ?  ", "%#{search}%","%#{search}%","%#{search}%")
+    if mysearch1.nil?
+      return mysearch2
+    else
+      return mysearch1
+    end
+
   end
 
 end

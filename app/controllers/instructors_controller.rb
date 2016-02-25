@@ -10,7 +10,7 @@ class InstructorsController < ApplicationController
   # GET /instructors/1
   # GET /instructors/1.json
   def show
-    @courses =  Course.joins(:teaches).where("teaches.instructor_id = ?",params[:id] )
+    @courses =  Course.joins(:teaches).where("teaches.user_id = ?",params[:id] )
   end
 
   # GET /instructors/new
@@ -29,7 +29,7 @@ class InstructorsController < ApplicationController
 
     respond_to do |format|
       if @instructor.save
-        format.html { redirect_to @instructor, notice: 'Instructor was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Instructor was successfully created.' }
         format.json { render :show, status: :created, location: @instructor }
       else
         format.html { render :new }
