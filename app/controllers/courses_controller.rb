@@ -10,6 +10,25 @@ class CoursesController < ApplicationController
     else
       @is_admin = false
     end
+
+      #search bar
+      if params[:search]
+        @courses = Course.search(params[:search]).order("number")
+      else
+        @courses = Course.all.order("number")
+      end
+    @instructor_course_map = {}
+
+    @courses.each do |course|
+      teach = Teach.find_by_course_id(course.id)
+      if !teach.nil?
+          name = Instructor.find(teach.instructor_id).name
+          @instructor_course_map[course.id] = name
+      end
+    end
+    puts @instructor_course_map.to_s
+
+
   end
 
   # GET /courses/1
@@ -83,4 +102,5 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:number, :title, :description, :startdate, :enddate, :status)
     end
+
 end

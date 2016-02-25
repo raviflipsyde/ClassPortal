@@ -1,3 +1,8 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Enrollments</h1>
@@ -5,22 +10,23 @@
 <table>
   <thead>
     <tr>
-      <th>Grade</th>
       <th>Student</th>
       <th>Course</th>
+      <th>Grade</th>
+      <th colspan="3"> Actions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @enrollments.each do |enrollment| %>
+    <% @enrollments.each do |enrollment|  %>
       <tr>
+        <td><%= User.find(enrollment.student_id).name %></td>
+        <td><%= Course.find(enrollment.course_id).title%></td>
         <td><%= enrollment.grade %></td>
-        <td><%= enrollment.student %></td>
-        <td><%= enrollment.course %></td>
-        <td><%= link_to 'Show', enrollment %></td>
-        <td><%= link_to 'Edit', edit_enrollment_path(enrollment) %></td>
-        <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', enrollment, class: "btn btn-sm btn-info" %></td>
+        <td><%= link_to 'Edit', edit_enrollment_path(enrollment), class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Enrollment', new_enrollment_path %>
+<%= link_to 'New Enrollment', new_enrollment_path, class: "myButton"  %>
+
+</div>

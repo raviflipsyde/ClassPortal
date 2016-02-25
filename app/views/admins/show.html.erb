@@ -4,33 +4,49 @@
 
 <br> <br>
 <div>
-  <h3>Admin Management</h3>
-  <%= link_to 'New Admin', new_admin_path %>
+  <style>
+    body {background-color:#2E2F30;}
+    h1   {color:white;}
+    p    {color:white;}
+  </style>
+  <h3 color="white">Admin Management</h3>
   <br>
-  <%= link_to 'Edit Profile', edit_admin_path(@admin) %>
+  <%= link_to 'New Admin', new_admin_path , class: "myButton" %>
+
+  &nbsp
+  <%= link_to 'Edit Profile', edit_admin_path(@admin), class: "myButton"  %>
+  &nbsp
+  <%= link_to 'View Admins', admins_path, class: "myButton"  %>
   <br>
-  <%= link_to 'View Admins', admins_path %>
+  <br>
 </div>
 
 <div>
   <h3>Course Management</h3>
-  <%= link_to 'New Course', new_course_path %>
   <br>
-  <%= link_to 'View Courses', courses_path%>
+  <%= link_to 'New Course', new_course_path, class: "myButton"  %>
+  &nbsp
+  <%= link_to 'View Courses', courses_path, class: "myButton" %>
+  &nbsp
+  <%= link_to 'Post grades', admins_path, class: "myButton"  %>
   <br>
-  <!--<%= link_to 'Post grades', admins_path %>-->
+  <br>
+  <%= link_to 'Post grades', admins_path %>
 </div>
 
 
 <div>
-  <h3>Instructor/Student Management</h3>
-  <%= link_to 'New Instructor', new_instructor_path%>
+  <h3 color="white">Instructor/Student Management</h3>
   <br>
-  <%= link_to 'View Instructors', instructors_path %>
+  <%= link_to 'New Instructor', new_instructor_path, class: "myButton" %>
+  &nbsp
+  <%= link_to 'View Instructors', instructors_path, class: "myButton"  %>
+  &nbsp
+  <%= link_to 'New Student', new_student_path, class: "myButton" %>
+  &nbsp
+  <%= link_to 'View Students', students_path, class: "myButton"  %>
   <br>
-  <%= link_to 'New Student', new_student_path%>
   <br>
-  <%= link_to 'View Students', students_path %>
 
 </div>
 

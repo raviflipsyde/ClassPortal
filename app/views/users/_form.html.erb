@@ -1,3 +1,8 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -12,23 +17,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name, class:'form_lable' %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
+    <%= f.label :email, class:'form_lable' %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :type %><br>
+    <%= f.label :type, class:'form_lable' %><br>
     <%= f.text_field :type %>
   </div>
     <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password, class:'form_lable' %><br>
     <%= f.password_field :password %>
 </div>
     <div class="field">
-    <%= f.label :password_confirmation, "Confirmation" %> <br>
+    <%= f.label :password_confirmation, "Confirmation", class:'form_lable' %> <br>
     <%= f.password_field :password_confirmation %>
     </div>
   <div class="actions">

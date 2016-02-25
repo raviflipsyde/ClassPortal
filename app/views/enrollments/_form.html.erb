@@ -1,3 +1,8 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <%= form_for(@enrollment) do |f| %>
   <% if @enrollment.errors.any? %>
     <div id="error_explanation">
@@ -12,19 +17,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :grade %><br>
+    <%= f.label :grade, class:'form_lable' %><br>
     <%= f.text_area :grade %>
   </div>
   <div class="field">
-    <%= f.label :student_id %><br>
+    <%= f.label :student_id, class:'form_lable' %><br>
     <%= f.text_field :student_id %>
   </div>
   <div class="field">
-    <%= f.label :course_id %><br>
+    <%= f.label :course_id, class:'form_lable' %><br>
     <%= f.text_field :course_id %>
   </div>
     <div class="field">
-      <%= f.label :estatus %><br>
+      <%= f.label :estatus, class:'form_lable' %><br>
       <%= f.check_box :estatus %>
     </div>
   <div class="actions">

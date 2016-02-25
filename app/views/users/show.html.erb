@@ -1,3 +1,8 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +20,5 @@
   <%= @user.type %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user), class: "myButton"  %> |
+<%= link_to 'Back', users_path, class: "myButton"  %>

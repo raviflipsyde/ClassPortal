@@ -1,3 +1,8 @@
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 <h2>Instuctors Homepage</h2>
 <p id="notice"><%= notice %></p>
 
@@ -20,6 +25,9 @@
       <td>Starts On</td>
       <td>Ends on</td>
       <td>Status</td>
+      <td>Details</td>
+      <td>Enrollment/Grades</td>
+      <td>Materials</td>
     </tr>
     </thead>
 
@@ -33,9 +41,9 @@
           <td><%= course.startdate %></td>
           <td><%= course.enddate %></td>
           <td><%= course.status %></td>
-          <td><%= link_to 'Details', displaycourse_path(course.id) %></td>
-          <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id) %></td>
-          <td><%= link_to 'Materials', instructors_path %></td>
+          <td><%= link_to 'Details', displaycourse_path(course.id),class: "btn btn-sm btn-info" %></td>
+          <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id),class: "btn btn-sm btn-info" %></td>
+          <td><%= link_to 'Materials', instructors_path,class: "btn btn-sm btn-info" %></td>
 
         </tr>
     <% end %>
@@ -43,8 +51,8 @@
   </table>
 
 </div>
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>
+<%= link_to 'Edit', edit_instructor_path(@instructor), class: "myButton"  %> |
+<%= link_to 'Back', instructors_path, class: "myButton"  %>
 
 
 <br><br>

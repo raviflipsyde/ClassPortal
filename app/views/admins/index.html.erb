@@ -1,4 +1,9 @@
 <div class="col-md-10">
+  <style>
+    body {background-color:#2E2F30;}
+    h1   {color:white;}
+    p    {color:white;}
+  </style>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Admins</h1>
@@ -34,5 +39,5 @@
 
 <br>
 
-<%= link_to 'New Admin', new_admin_path %>
+<%= link_to 'New Admin', new_admin_path, class: "myButton"  %>
 </div>

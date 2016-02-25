@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
 
 <p>
   <strong>Content:</strong>
@@ -10,5 +15,5 @@
   <%= @cmaterial.course %>
 </p>
 
-<%= link_to 'Edit', edit_cmaterial_path(@cmaterial) %> |
-<%= link_to 'Back', cmaterials_path %>
+<%= link_to 'Edit', edit_cmaterial_path(@cmaterial), class: "myButton"  %> |
+<%= link_to 'Back', cmaterials_path, class: "myButton"  %>
