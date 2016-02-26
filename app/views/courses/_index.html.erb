@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
+
+
+
+
+<%= form_tag(courses_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Courses" %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<h1>Listing Courses</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Number</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Instructor</th>
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Status</th>
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @courses.each do |course| %>
+      <tr>
+        <td><%= course.number %></td>
+        <td><%= course.title %></td>
+        <td><%= course.description %></td>
+        <td><%= @instructor_course_map[course.id]%></td>
+        <td><%= course.startdate %></td>
+        <td><%= course.enddate %></td>
+        <% if course.status == true %>
+            <td>Active</td>
+        <% else %>
+            <td>Inactive</td>
+        <% end %>
+        <% if (@is_admin == true )  %>
+            <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
+            <td><%= link_to 'Edit', edit_course_path(course),class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-sm btn-danger" %></td>
+            <td><%= link_to 'Enroll Instructor', '#', :onclick => "openEnrollment(#{course.id});",class: "btn btn-sm btn-success" %></td>>
+        <%else%>
+            <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
+            <td><%= link_to 'Enroll', new_enrollment_path,class: "btn btn-sm btn-success" %></td>
+        <%end%>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if (@is_admin == true) %>
+    <%= link_to 'New Course', new_course_path, class: "myButton" %>
+<%end%>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Trip</h4>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="selected_course_id" name="course_id" >
+        <input type="text" id = "instructor_id" name="instructor_id" type="text" placeholder="Enter an origin location" autocomplete="off" ><br>
+        <input type="submit" class="btn btn-default" value="Submit" onclick="submitCourseIntructor();">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function openEnrollment(course_id){
+    $('#selected_course_id').val(course_id);
+    $('#123').show();
+  }
+
+    function submitCourseIntructor(){
+      alert($('#selected_course_id').val());
+      $.ajax({
+        url: '<%= update_teaches_path %>',
+        data: {course_id: $('#selected_course_id').val(), instructor_id: $('#instructor_id').val()},
+        type: 'POST',
+        success: function(){}
+      });
+      return false;
+    }
+
+</script>
