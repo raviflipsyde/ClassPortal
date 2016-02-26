@@ -119,3 +119,8 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 
 #####Messages
 * You can communicate with Instructors via messages using New Message and Read Messages buttons.
+
+
+
+##References
+https://www.railstutorial.org/book/
