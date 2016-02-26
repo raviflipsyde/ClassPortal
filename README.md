@@ -17,5 +17,5 @@ This Class Portal is created as a course requirement for CSC 517 Spring 2016 and
 ##Build Environment
 * This Class Portal uses Ruby <tt>Version 2.2.3</tt>, Rails <tt>Version 4.2.4</tt> and postgres as database.
 * The instructions to install Rails and setup postgres can be found [here](https://gorails.com/setup/ubuntu/15.10)
-* JetBrains [RubyMine](https://www.jetbrains.com/ruby/) is recommended IDE for ruby development.
+*  [RubyMine IDE](https://www.jetbrains.com/ruby/) can be used for ruby development.
 
