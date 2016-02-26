@@ -44,3 +44,43 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 #####View Admins 
 * Clicking on  View Admins button will redirect you to 'Listing Admins' page where you can see the details of all other admins registered on the Class Portal. 
 * Here you can Edit the details of other admins or delete their account. (Note: You can not delete your account and preconfigured admin account.)
+
+
+
+###Course Management
+
+#####New Course
+* Click on the New Course button and fill out the course details to create a new course. 
+
+#####View Courses
+*  Click on View Courses button to see all the course details available on the Class Portal.
+*  You can also edit a course(change the status of a course, etc), Enroll a student into a course, post grades for a course, add course material for a course, and delete a course.
+
+#####Post Grades 
+* On clicking the Post Grades button, you'll be redirected to a form where you can select a particular student and post grade of that student for a particular course.
+
+
+
+
+###Instructor Management
+
+#####New Instructor
+* Click on the New Instructor button and fill out the details like Name, Email, Password for the instructor account you wish to create. 
+
+#####View Instructors
+*  Click on the View Instructors button will take you to 'Listing Instructors' page.
+*  You can view instructor details here and also can delete an instructor profile. 
+
+
+
+
+###Student Management
+
+#####New Student
+* Click on the New Student button and fill out the details like Name, Email, Password for the student account you wish to create. 
+
+#####View Students
+*  Click on the View Students button will take you to 'Listing Students' page.
+*  You can view student details here and also can delete a student profile. 
+
+
