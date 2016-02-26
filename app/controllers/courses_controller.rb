@@ -72,6 +72,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    @instructors = Instructor.all
   end
 
   # POST /courses[]

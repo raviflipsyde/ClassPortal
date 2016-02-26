@@ -15,6 +15,7 @@ class CmaterialsController < ApplicationController
   # GET /cmaterials/new
   def new
     @cmaterial = Cmaterial.new
+    @cmaterial.course_id = params[:course_id];
   end
 
   # GET /cmaterials/1/edit
