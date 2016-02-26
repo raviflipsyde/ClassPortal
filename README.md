@@ -96,3 +96,6 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 
 #####Course Material
 * Click on Materials button to view and add course material. 
+
+#####Messages
+* You can communicate with Students via messages using New Message and Read Messages buttons.
