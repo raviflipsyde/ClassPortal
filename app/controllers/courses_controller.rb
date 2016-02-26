@@ -24,15 +24,14 @@ class CoursesController < ApplicationController
       end
     @instructor_course_map = {}
 
-    # @courses.each do |course|
-    #   teach = Teach.find_by_course_id(course.id)
-    #   if !teach.nil?
-    #       name = Instructor.find(teach.user_id).name
-    #       @instructor_course_map[course.id] = name
-    #   end
-    # end
+     @courses.each do |course|
+       teach = Teach.find_by_course_id(course.id)
+       if !teach.nil?
+           name = Instructor.find(teach.user_id).name
+           @instructor_course_map[course.id] = name
+       end
+     end
     # puts @instructor_course_map.to_s
-
 
   end
 
@@ -67,22 +66,34 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @instructors = Instructor.all
+
   end
 
   # GET /courses/1/edit
   def edit
   end
 
-  # POST /courses
+  # POST /courses[]
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    puts("----------------------------------------")
+    puts(params[:teaches][:user_id])
+    puts("----------------------------------------")
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        @teaches = Teach.new
+
+        @teaches.course_id = @course.id
+        @teaches.user_id = params[:teaches][:user_id]
+        @teaches.request = "Test"
+        @teaches.save
+        format.html { redirect_to courses_path, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
+        @instructors = Instructor.all
         format.html { render :new }
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
@@ -121,7 +132,7 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:number, :title, :description, :startdate, :enddate, :status)
+      params.require(:course).permit(:number, :title, :description, :startdate, :enddate, :status, :user_id)
     end
 
 end

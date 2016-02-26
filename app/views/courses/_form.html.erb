@@ -35,6 +35,15 @@
         <%= f.label :status, class:'form_lable' %><br>
         <%= f.check_box :status, class: 'checkbox' %>
         <br>
+        <br>
+
+        <div class="form-group">
+          <%= f.label :student_id, class:'form_lable' %><br>
+
+
+          <%= select("teaches", "user_id", @instructors.collect {|r| [ r.name, r.id ] }, { :include_blank => true }, class: "form-control" )%>
+        </div>
+
 
         <%= f.submit "Submit", class: "myButton" %>
 
