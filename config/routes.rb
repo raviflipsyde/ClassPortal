@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get '/messages/requests/read' => 'messages#indexrequest', as: :readrequest
   resources :messages
   resources :cmaterials
   resources :teaches
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   get '/enrollments/course/:id/new' => 'enrollments#newenrollmenttocoure', as: :newcourseenrollment
   post '/enrollments/student/:c_id' => 'enrollments#createstudentenrollment', as: :newstudentcourseenrollment
   get '/teaches/new/course/:c_id' => 'teaches#newteachescourse', as: :addnewinstructortocourse
+  get '/messages/request/new' => 'messages#newrequest' , as: :newrequest
 
   get 'sessions/new'
 
