@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
     end
 
   end
-  
+
   @cmaterial = Cmaterial.where(course_id: @course.id)
 
   end

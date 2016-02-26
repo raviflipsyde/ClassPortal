@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Msg:</strong>
+  <%= @message.msg %>
+</p>
+
+<!--<p>-->
+  <!--<strong>To user:</strong>-->
+  <!--<%= @message.to_user %>-->
+<!--</p>-->
+
+<p>
+  <strong>From user:</strong>
+  <%= User.find(@message.from_user).name %>
+</p>
+
+<!--<p>-->
+  <!--<strong>Readflag:</strong>-->
+  <!--<%= @message.readflag %>-->
+<!--</p>-->
+
+<!--
+<%= link_to 'Edit', edit_message_path(@message) %> | -->
+<%= link_to 'Back', messages_path %>

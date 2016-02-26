@@ -1,0 +1,37 @@
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    <div class="field">
+      <%= f.label :to_user %><br>
+      <%= select("message", "to_user", @user_list.collect {|r| [ r.name, r.id ] }, { :include_blank => true }, class: "form-control" )%>
+    </div>
+
+  <div class="field">
+    <%= f.label :msg %><br>
+    <%= f.text_area :msg %>
+  </div>
+    <div class="field" style="visibility: hidden">
+      <%= f.label :readflag %><br>
+      <%= f.check_box :readflag %>
+    </div>
+
+    <div class="field" style="visibility: hidden">
+    <%= f.label :from_user %><br>
+    <%= f.number_field :from_user %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
