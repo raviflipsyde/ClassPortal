@@ -16,6 +16,7 @@ class EnrollmentsController < ApplicationController
   # GET /enrollments/course/1.json
   def showcourse
     @enrollments = Enrollment.includes(:user).where("course_id = ?", params[:id]).order("user_id")
+    @course_id = params[:id]
 
       puts "-----------------------------------------ENR START-------------------------------------"
     puts(@enrollments.size)
