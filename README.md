@@ -33,7 +33,7 @@ This Class Portal is created as a course requirement for CSC 517 Spring 2016 and
 
 Once you log in to the class portal as an Admin, you'll see the Admin Dashboard where all the admin functionalities are provided.
 
-###Admin Management:
+###Admin Management
 
 #####New Admin
 * Click on the New Admin button and fill out the details like Name, Email, Password for the admin account you wish to create. 
@@ -60,8 +60,6 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 * On clicking the Post Grades button, you'll be redirected to a form where you can select a particular student and post grade of that student for a particular course.
 
 
-
-
 ###Instructor Management
 
 #####New Instructor
@@ -70,8 +68,6 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 #####View Instructors
 *  Click on the View Instructors button will take you to 'Listing Instructors' page.
 *  You can view instructor details here and also can delete an instructor profile. 
-
-
 
 
 ###Student Management
@@ -84,3 +80,19 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 *  You can view student details here and also can delete a student profile. 
 
 
+
+#Instructor
+
+* Once you log in to the class portal as an Instructor, you'll see the Instructor Homepage where all the instructor functionalities are provided.
+
+* The homepage displays list of courses you are teaching as an instructor. 
+
+
+#####Course Details
+* Click on the Details button to see a particular course details. 
+
+#####Manage Enrollment/Grades
+* Click on Enrollment/Grades button to see and manage list of students enrolled for a particular course. 
+
+#####Course Material
+* Click on Materials button to view and add course material. 
