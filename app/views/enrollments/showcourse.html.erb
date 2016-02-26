@@ -3,7 +3,7 @@
   h1   {color:white;}
   p    {color:white;}
 </style>
-<h2> Course Enrollment Details Page</h2>
+<h2> Student Course Enrollment Details </h2>
 <p id="notice"><%= notice %></p>
 
 
@@ -14,8 +14,9 @@
 <table class="table">
   <thead>
   <tr>
-    <td>Name</td>
-    <td>status</td>
+    <th>Name</th>
+    <th>status</th>
+    <th colspan="3"> Actions</th>
   </tr>
   </thead>
 
@@ -23,10 +24,10 @@
   <% @enrollments.each do |enr| %>
       <tr>
         <td><%= enr.user.name %></td>
-        <td><%= enr.estatus %></td>
-        <td><%= enr.user_id %></td>
-        <td><%= enr.course_id %></td>
-        <td><%= link_to 'Edit', edit_enrollment_path(enr),class: "btn btn-sm btn-success"  %></td>
+        <td><%= enr.estatus ? 'Enrolled' : 'Enrollment Requested' %></td>
+        <!--<td><%= enr.user_id %></td>-->
+        <!--<td><%= enr.course_id %></td>-->
+        <td><%= link_to 'Edit Enrollment Status/ Grades', edit_enrollment_path(enr),class: "btn btn-sm btn-success"  %></td>
         <td><%= link_to 'Destroy', enr, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
 
       </tr>

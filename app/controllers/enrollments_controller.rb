@@ -15,7 +15,7 @@ class EnrollmentsController < ApplicationController
   # GET /enrollments/course/1
   # GET /enrollments/course/1.json
   def showcourse
-    @enrollments = Enrollment.includes(:user).where("course_id = ?", params[:id])
+    @enrollments = Enrollment.includes(:user).where("course_id = ?", params[:id]).order("user_id")
 
       puts "-----------------------------------------ENR START-------------------------------------"
     puts(@enrollments.size)
@@ -45,6 +45,8 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments/1/edit
   def edit
+    @students = Student.all
+
   end
 
   # POST /enrollments
@@ -53,7 +55,7 @@ class EnrollmentsController < ApplicationController
     @enrollment = Enrollment.new(enrollment_params)
     respond_to do |format|
       if @enrollment.save
-        format.html { redirect_to @enrollment, notice: 'Enrollment was successfully created.' }
+        format.html { redirect_to action: 'showcourse', id: @enrollment.course_id , notice:'Enrollment was successfully created.' }
         format.json { render :show, status: :created, location: @enrollment }
       else
         format.html { render :new }
@@ -96,7 +98,7 @@ class EnrollmentsController < ApplicationController
   def update
     respond_to do |format|
       if @enrollment.update(enrollment_params)
-        format.html { redirect_to @enrollment, notice: 'Enrollment was successfully updated.' }
+        format.html { redirect_to action: 'showcourse', id: @enrollment.course_id , notice: 'Enrollment was successfully updated.' }
         format.json { render :show, status: :ok, location: @enrollment }
       else
         format.html { render :edit }
@@ -123,7 +125,7 @@ class EnrollmentsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def enrollment_params
-    params.require(:enrollment).permit(:grade, :user_id, :course_id)
+    params.require(:enrollment).permit(:grade, :user_id, :course_id, :estatus)
   end
 
   def enrollment_params_for_student

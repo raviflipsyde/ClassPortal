@@ -32,10 +32,10 @@
     <%= f.text_field :course_id %>
   </div>
     <div class="form-group">
-      <%= f.label :estatus, class:'form_lable' %><br>
+      <%= f.label 'Enrollment Status (Check to Enroll/ Uncheck to Un-enroll Student)', class:'form_lable' %><br>
       <%= f.check_box :estatus %>
     </div>
   <div class="actions">
-    <%= f.submit %>
+     <%= f.submit "Submit", class: "myButton" %>
   </div>
 <% end %>
