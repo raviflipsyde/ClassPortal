@@ -1,13 +1,3 @@
-# repo02
-Class Portal application
-
-admin user: admin1@admin1.com
-
-admin Password: admin1
-
-References used
-https://www.railstutorial.org/book/
-
 
 #Class Portal
 [Check out the Class Portal on heroku](https://cportal01.herokuapp.com/)
@@ -19,3 +9,20 @@ This Class Portal is created as a course requirement for CSC 517 Spring 2016 and
 * The instructions to install Rails and setup postgres can be found [here](https://gorails.com/setup/ubuntu/15.10)
 *  [RubyMine IDE](https://www.jetbrains.com/ruby/) can be used for ruby development.
 
+###Pre-configured Admin account
+
+| Email             | Password  |
+| :---------------: |:---------:|
+| admin1@admin1.com | admin1    |
+
+###Pre-configured Teacher account
+
+| Email           | Password  |
+| :-------------: |:---------:|
+|  instr1@instr1.com| instr1    |
+
+###Pre-configured User account
+
+| Email           | Password  |
+| :-------------: |:---------:|
+| student1@student1.com | student1     |
