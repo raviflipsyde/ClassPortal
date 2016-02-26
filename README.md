@@ -99,3 +99,23 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 
 #####Messages
 * You can communicate with Students via messages using New Message and Read Messages buttons.
+* 
+
+
+#Student
+
+* Once you log in to the class portal as a student, you'll see the list of active courses you are enrolled into.
+* You can drop a course by clicking on the Destroy button.
+
+
+
+#####Browse Courses
+* You can view all the available course using Browse courses button which will redirect you to Listing Courses page.
+* You can request for enrollment into a particular course by clicking on Enroll this course button.
+* You can also search course by course title, description, Instructor name using the search bar. 
+
+#####Course History
+* Course History will show you the list of courses you had taken earlier.
+
+#####Messages
+* You can communicate with Instructors via messages using New Message and Read Messages buttons.
