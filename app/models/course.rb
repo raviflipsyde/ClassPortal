@@ -16,6 +16,9 @@ class Course < ActiveRecord::Base
 
   def self.search(search)
 
+    mysearch3 = Course.where("title = ?", "00000")
+    puts mysearch3.size
+
     if /\A\d+\z/.match(search)
 
       mysearch1 = Course.where("number = ?", search.to_i)
@@ -26,10 +29,33 @@ class Course < ActiveRecord::Base
     end
 
     mysearch2 = Course.where("title LIKE ? or title LIKE ? or description LIKE ?  ", "%#{search}%","%#{search}%","%#{search}%")
-    if mysearch1.nil?
-      return mysearch2
-    else
+
+
+
+   teachesSearch = Instructor.where("name like ?", "%#{search}%")
+    if( teachesSearch.size > 0)
+     teachesSearch.each do |t|
+      # puts Teach.includes(:course).where("user_id = ?", t.id).course.title
+       mysearch3 =  Course.joins(:teaches).where("teaches.user_id =?", t.id)
+       mysearch3.each do |my|
+      puts my.title
+      end
+        # puts (Course.joins(:teaches).where("teaches.user_id =?", t.id))
+     end
+   end
+
+     if !mysearch1.nil?
+       puts "search1 printed"
       return mysearch1
+    elsif mysearch2.size > 0
+
+      puts "search2 printed"
+      puts mysearch2.size
+      return mysearch2
+     else
+       puts "search3 printed"
+       puts mysearch3.size
+       return mysearch3
     end
 
   end
