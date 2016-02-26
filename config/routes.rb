@@ -55,6 +55,12 @@ Rails.application.routes.draw do
   #     end
   #   end
 
+  resources :students do
+    collection do
+      post 'show_course_history'
+    end
+  end
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales

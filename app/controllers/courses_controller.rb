@@ -39,9 +39,6 @@ class CoursesController < ApplicationController
   # GET /courses/1.json
   def show
 
-  @course = Course.find(params[:id]);
-
-  @instructor_course_map = {}
   @instr_string = ""
   teach = Teach.where(course_id: @course.id)
 
