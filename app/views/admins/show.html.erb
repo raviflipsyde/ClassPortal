@@ -12,9 +12,6 @@
   <h3 color="white">Admin Management</h3>
   <br>
   <%= link_to 'New Admin', new_admin_path , class: "myButton" %>
-
-  &nbsp
-  <%= link_to 'Edit Profile', edit_admin_path(@admin), class: "myButton"  %>
   &nbsp
   <%= link_to 'View Admins', admins_path, class: "myButton"  %>
   <br>
@@ -35,12 +32,20 @@
 
 
 <div>
-  <h3 color="white">Instructor/Student Management</h3>
+  <h3 color="white">Instructor Management</h3>
   <br>
   <%= link_to 'New Instructor', new_instructor_path, class: "myButton" %>
   &nbsp
   <%= link_to 'View Instructors', instructors_path, class: "myButton"  %>
-  &nbsp
+
+  <br>
+  <br>
+
+</div>
+
+<div>
+  <h3 color="white">Student Management</h3>
+  <br>
   <%= link_to 'New Student', new_student_path, class: "myButton" %>
   &nbsp
   <%= link_to 'View Students', students_path, class: "myButton"  %>
