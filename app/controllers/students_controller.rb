@@ -10,7 +10,9 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-      @enrollments = Enrollment.includes(:course).where(:user_id => params[:id] , :estatus => true ).where( "course.status" => true)
+      @userid = params[:id]
+      @enrollments = Enrollment.includes(:course).where(:user_id => @userid  , :estatus => true ).where('courses.status' => true)
+
       #  @enrollments = Enrollment.find_by_course_id(params[:id])
       puts "-----------------------------------------ENR START-------------------------------------"
       puts "-----------------------------------------ENR END---------------------------------------"
@@ -19,7 +21,8 @@ class StudentsController < ApplicationController
 
 
   def show_course_history
-    @enrollments = Enrollment.includes(:course).where(:user_id => params[:id] , :estatus => true )
+    @enrollments = Enrollment.includes(:course).where(:user_id => current_user.id , :estatus => true )
+    puts "-----------------------------------------Coursw START-------------------------------------"
   end
   # GET /students/new
   def new
