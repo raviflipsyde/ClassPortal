@@ -120,6 +120,11 @@ Once you log in to the class portal as an Admin, you'll see the Admin Dashboard 
 #####Messages
 * You can communicate with Instructors via messages using New Message and Read Messages buttons.
 
+#####Delete Functionalities
+* Delete Student will delete the enrollemt entries.
+* Delete Instructor will delete the teaches entries.
+* Delete enrollment may lead to enrollments list page. User may have to go back to home page through Home link
+
 
 
 ##References
