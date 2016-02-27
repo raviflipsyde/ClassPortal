@@ -7,6 +7,25 @@ class MessagesController < ApplicationController
     @messages = Message.where('to_user = ?', current_user.id)
   end
 
+  # GET /messages/requests/read
+  # GET /messages.json
+  def indexrequest
+  puts "\n\n in index request \n\n"
+    c_user = User.find(current_user.id)
+    if c_user.type == 'Admin'
+      @messages = Message.where('requestflag = ?', true)
+    else
+      respond_to do |format|
+        format.html { redirect_to @current_user, notice: 'You dont have permission to see Requests' }
+      end
+
+    end
+
+
+  end
+
+
+
   # GET /messages/1
   # GET /messages/1.json
   def show
@@ -32,6 +51,27 @@ class MessagesController < ApplicationController
     end
   end
 
+
+  # GET /messages/request/new
+  def newrequest
+    @message = Message.new
+    @message.requestflag= true
+
+    @message.from_user = current_user.id
+    c_user = User.find(current_user.id)
+
+    if c_user.type == 'Instructor'
+      @user_list = Admin.all
+    else
+
+      respond_to do |format|
+        format.html { redirect_to @current_user, notice: 'You dont have permission to send Message' }
+      end
+
+    end
+  end
+
+
   # GET /messages/1/edit
   def edit
   end
@@ -41,6 +81,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.readflag= false
+
     respond_to do |format|
       if @message.save
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
@@ -79,11 +120,11 @@ class MessagesController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_message
-    @message = Message.find(params[:id])
+    #@message = Message.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def message_params
-    params.require(:message).permit(:msg, :to_user, :from_user, :readflag)
+    params.require(:message).permit(:msg, :to_user, :from_user, :readflag, :requestflag)
   end
 end
