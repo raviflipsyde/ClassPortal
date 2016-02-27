@@ -1,15 +1,11 @@
-<h2 color="white"> Admin Homepage</h2>
+<h1> Admin Homepage</h1>
 <p id="notice"><%= notice %></p>
 
 
 <br> <br>
 <div>
-  <style>
-    body {background-color:#2E2F30;}
-    h1   {color:white;}
-    p    {color:white;}
-  </style>
-  <h3 color="white">Admin Management</h3>
+
+  <h3 >Admin Management</h3>
   <br>
   <%= link_to 'New Admin', new_admin_path , class: "myButton" %>
   &nbsp
@@ -19,7 +15,7 @@
 </div>
 
 <div>
-  <h3 color="white">Course Management</h3>
+  <h3>Course Management</h3>
   <br>
   <%= link_to 'New Course', new_course_path, class: "myButton"  %>
   &nbsp
@@ -32,7 +28,7 @@
 
 
 <div>
-  <h3 color="white">Instructor Management</h3>
+  <h3 >Instructor Management</h3>
   <br>
   <%= link_to 'New Instructor', new_instructor_path, class: "myButton" %>
   &nbsp
@@ -44,7 +40,7 @@
 </div>
 
 <div>
-  <h3 color="white">Student Management</h3>
+  <h3 >Student Management</h3>
   <br>
   <%= link_to 'New Student', new_student_path, class: "myButton" %>
   &nbsp
@@ -54,36 +50,3 @@
 
 </div>
 
-
-<div>
-Actions
-</div>
-<div>
-Link to Edit Profile <br>
-Admin Management <br>
-  <ul>
-    <li>Create Admin</li>
-    <li>View Admins</li>
-    <li>Delete Admins</li>
-  </ul>
-Course Management <br>
-  <ul>
-      <li>Create Course</li>
-      <li>View Courses</li>
-      <li>View Course details</li>
-        <li>Edit Course details</li>
-        <li>Delete details</li>
-        <li>Post grades on behalf of instructor</li>
-  </ul>
-
-Instructor/Student Management <br>
-  <ul>
-    <li>Add/Remove Instructor</li>
-      <li>Add/Remove Student</li>
-      <li>View Course details</li>
-      <li>Edit Course details</li>
-      <li>Delete details</li>
-  </ul>
-
-
-</div>
