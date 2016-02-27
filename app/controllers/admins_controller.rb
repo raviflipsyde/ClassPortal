@@ -17,6 +17,8 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    @c_id = current_user.id
+
   end
 
   # GET /admins/1/edit
@@ -30,7 +32,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Admin was successfully created.' }
         format.json { render :show, status: :created, location: @admin }
       else
         format.html { render :new }

@@ -15,6 +15,7 @@ class CmaterialsController < ApplicationController
   # GET /cmaterials/new
   def new
     @cmaterial = Cmaterial.new
+    @cmaterial.course_id = params[:course_id];
   end
 
   # GET /cmaterials/1/edit
@@ -28,7 +29,7 @@ class CmaterialsController < ApplicationController
 
     respond_to do |format|
       if @cmaterial.save
-        format.html { redirect_to @cmaterial, notice: 'Cmaterial was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Course material was successfully created.' }
         format.json { render :show, status: :created, location: @cmaterial }
       else
         format.html { render :new }

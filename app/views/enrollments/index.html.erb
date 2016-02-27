@@ -1,8 +1,4 @@
-<style>
-  body {background-color:#2E2F30;}
-  h1   {color:white;}
-  p    {color:white;}
-</style>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Enrollments</h1>
@@ -21,7 +17,7 @@
   <tbody>
     <% @enrollments.each do |enrollment|  %>
       <tr>
-        <td><%= User.find(enrollment.student_id).name %></td>
+        <td><%= User.find(enrollment.user_id).name %></td>
         <td><%= Course.find(enrollment.course_id).title%></td>
         <td><%= enrollment.grade %></td>
         <td><%= link_to 'Show', enrollment, class: "btn btn-sm btn-info" %></td>

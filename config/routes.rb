@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/messages/requests/read' => 'messages#indexrequest', as: :readrequest
+  resources :messages
   resources :cmaterials
   resources :teaches
   resources :enrollments
@@ -10,6 +13,11 @@ Rails.application.routes.draw do
   get '/courses/:id' => 'courses#show', as: :displaycourse
   get '/enrollments/course/:id'  => 'enrollments#showcourse', as: :displayenrollmentforcourse
   get '/courses/:id/coursecmaterials' => 'courses#showcoursecoursematerial', as: :displaycoursecoursematerial
+  get '/enrollments/course/:id/new' => 'enrollments#newenrollmenttocoure', as: :newcourseenrollment
+  post '/enrollments/student/:c_id' => 'enrollments#createstudentenrollment', as: :newstudentcourseenrollment
+  get '/teaches/new/course/:c_id' => 'teaches#newteachescourse', as: :addnewinstructortocourse
+  get '/messages/request/new' => 'messages#newrequest' , as: :newrequest
+
   get 'sessions/new'
 
   resources :users
@@ -31,6 +39,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
@@ -48,6 +57,12 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
+
+  resources :students do
+    collection do
+      post 'show_course_history'
+    end
+  end
 
   # Example resource route with sub-resources:
   #   resources :products do

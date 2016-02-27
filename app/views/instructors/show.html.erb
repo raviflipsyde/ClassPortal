@@ -1,9 +1,5 @@
-<style>
-  body {background-color:#2E2F30;}
-  h1   {color:white;}
-  p    {color:white;}
-</style>
-<h2>Instuctors Homepage</h2>
+
+<h1>Instuctors Homepage</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -34,7 +30,7 @@
     <tbody>
     <%  @courses.each do |course| %>
         <tr>
-
+          <%= params[:course_id] = course.id %>
           <td><%= course.number %></td>
           <td><%= course.title %></td>
           <td><%= course.description %></td>
@@ -43,7 +39,7 @@
           <td><%= course.status %></td>
           <td><%= link_to 'Details', displaycourse_path(course.id),class: "btn btn-sm btn-info" %></td>
           <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id),class: "btn btn-sm btn-info" %></td>
-          <td><%= link_to 'Materials', instructors_path,class: "btn btn-sm btn-info" %></td>
+          <td><%= link_to 'Materials', new_cmaterial_path(:course_id=>course.id),class: "btn btn-sm btn-info" %></td>
 
         </tr>
     <% end %>
@@ -51,13 +47,9 @@
   </table>
 
 </div>
-<%= link_to 'Edit', edit_instructor_path(@instructor), class: "myButton"  %> |
-<%= link_to 'Back', instructors_path, class: "myButton"  %>
+
+<%= link_to 'New Message', new_message_path, class: "myButton"  %>
+<%= link_to 'Read Messages', messages_path, class: "myButton"  %>
+<%= link_to 'New Request', '../messages/request/new', class: "myButton"  %>
 
 
-<br><br>
-Add student to the course<br>
-Remove student to the course<br>
-Add material to course page<br>
-Enroll in a course request<br>
-Post grades <br>

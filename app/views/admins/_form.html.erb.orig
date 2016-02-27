@@ -1,0 +1,49 @@
+<<<<<<< Updated upstream
+<div class="row">
+
+  <div class="CSSTableGenerator">
+=======
+>>>>>>> Stashed changes
+
+    <%= form_for(@admin) do |f| %>
+        <% if @admin.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+              <ul>
+                <% @admin.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :name, class:'form_lable' %><br>
+          <%= f.text_field :name, class:'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :email, class:'form_lable' %><br>
+          <%= f.text_field :email, class:'form-control' %>
+        </div>
+        <div class="field" hidden>
+          <%= f.label :type, class:'form_lable' %><br>
+          <%= f.text_field :type, class:'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :password, class:'form_lable' %><br>
+          <%= f.password_field :password, class:'form-control' %>
+        </div>
+        <div class="field">
+          <%= f.label :password_confirmation, "Confirmation", class:'form_lable' %> <br>
+          <%= f.password_field :password_confirmation, class:'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Submit",class: "myButton" %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+

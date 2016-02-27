@@ -17,6 +17,17 @@ class TeachesController < ApplicationController
     @teach = Teach.new
   end
 
+  # GET /teaches/new/:id
+  def newteachescourse
+    @teach = Teach.new
+    @teach.course_id= params[:c_id]
+
+    @instr = Instructor.all
+
+    render :action => :new
+  end
+
+
   # GET /teaches/1/edit
   def edit
   end
@@ -26,15 +37,23 @@ class TeachesController < ApplicationController
   def create
     @teach = Teach.new(teach_params)
 
-    respond_to do |format|
-      if @teach.save
-        format.html { redirect_to @teach, notice: 'Teach was successfully created.' }
-        format.json { render :show, status: :created, location: @teach }
-      else
-        format.html { render :new }
-        format.json { render json: @teach.errors, status: :unprocessable_entity }
+    teach1 = Teach.where("user_id = ? AND course_id = ?", @teach.user_id, @teach.course_id)
+    if(teach1.size < 1)
+      respond_to do |format|
+        if @teach.save
+          format.html { redirect_to courses_path, notice: 'Teach was successfully created.' }
+          format.json { render :show, status: :created, location: @teach }
+        else
+          format.html { render :new }
+          format.json { render json: @teach.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html {  redirect_to courses_path , notice: 'Instructor already teaches this course.' }
       end
     end
+
   end
 
   # PATCH/PUT /teaches/1
@@ -61,14 +80,41 @@ class TeachesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_teach
-      @teach = Teach.find(params[:id])
+  #POST /teaches/add/courseid/instructorid
+  def addnewinstructor
+    i_id = params[:i_id]
+    c_id = params[:c_id]
+    @teach = Teach.where("user_id = ? AND course_id = ?", i_id, c_id)
+    if(@teach.size<1)
+      @teach = Teach.new
+      @teach.user_id= i_id
+      @teach.course_id= c_id
+
+      respond_to do |format|
+        if @teach.save
+          format.html { redirect_to @teach, notice: 'Teach was successfully created.' }
+          format.json { render :show, status: :created, location: @teach }
+        else
+          format.html { render :new }
+          format.json { render json: @teach.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html {  redirect_to :back , notice: 'Instructor already teaches this course.' }
+      end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def teach_params
-      params.require(:teach).permit(:request, :instructor_id, :course_id)
-    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_teach
+    @teach = Teach.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def teach_params
+    params.require(:teach).permit(:request, :user_id, :course_id)
+  end
 end

@@ -1,21 +1,10 @@
-<style>
-  body {background-color:#2E2F30;}
-  h1   {color:white;}
-  p    {color:white;}
-</style>
+
 <h2>Student Homepage</h2>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_student_path(@student), class: "myButton" %> |
-<%= link_to 'Back', students_path, class: "myButton" %>
 
-<br><br>
-Edit Profile<br>
-Search Course<br>
-View Details of a Course<br>
-Enroll in a course request<br>
-Drop a course <br>
-View own Course history <br>
+
+
 <table>
   <thead>
   <tr>
@@ -38,7 +27,6 @@ View own Course history <br>
             <td>false</td>
                 <% end %>
 
-        <td><%= link_to 'Show', enrollment, class: "btn btn-sm btn-info" %></td>
         <td><%= link_to 'Destroy', enrollment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" %></td>
       </tr>
 
@@ -46,4 +34,7 @@ View own Course history <br>
   </tbody>
 </table>
 <br>
+<%= link_to 'New Message', new_message_path,class: "myButton" %>
+<%= link_to 'Read Messages', messages_path,class: "myButton" %>
 <%= link_to 'Browse Courses', courses_path, class: "myButton" %>
+<%= link_to 'Course History', show_course_history_students_path,{ class: "myButton", method: :post}  %>

@@ -1,0 +1,64 @@
+<h1> Admin Homepage</h1>
+<p id="notice"><%= notice %></p>
+
+
+<br> <br>
+<div>
+
+  <h3 >Admin Management</h3>
+  <br>
+  <%= link_to 'New Admin', new_admin_path , class: "myButton" %>
+  &nbsp
+  <%= link_to 'View Admins', admins_path, class: "myButton"  %>
+  <br>
+  <br>
+</div>
+
+<div>
+<<<<<<< Updated upstream
+  <h3>Course Management</h3>
+=======
+  <h3 >Course Management</h3>
+>>>>>>> Stashed changes
+  <br>
+  <%= link_to 'New Course', new_course_path, class: "myButton"  %>
+  &nbsp
+  <%= link_to 'View Courses', courses_path, class: "myButton" %>
+  &nbsp
+  <%= link_to 'Post grades', edit_enrollment_path, class: "myButton"  %>
+  &nbsp
+  <%= link_to 'View Requests', '/messages/requests/read',  class: "myButton"  %>
+  <br>
+  <br>
+</div>
+
+
+<div>
+  <h3 >Instructor Management</h3>
+  <br>
+  <%= link_to 'New Instructor', new_instructor_path, class: "myButton" %>
+  &nbsp
+  <%= link_to 'View Instructors', instructors_path, class: "myButton"  %>
+
+  <br>
+  <br>
+
+</div>
+
+<div>
+  <h3 >Student Management</h3>
+  <br>
+  <%= link_to 'New Student', new_student_path, class: "myButton" %>
+  &nbsp
+  <%= link_to 'View Students', students_path, class: "myButton"  %>
+  <br>
+  <br>
+<<<<<<< Updated upstream
+=======
+
+</div>
+
+>>>>>>> Stashed changes
+
+</div>
+
