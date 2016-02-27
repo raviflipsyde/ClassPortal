@@ -19,13 +19,13 @@ This Class Portal is created as a course requirement for CSC 517 Spring 2016 and
 
 | Email           | Password  |
 | :-------------: |:---------:|
-|  instr1@instr1.com| instr1    |
+|  instr1@instr1.com| password    |
 
 ###Pre-configured User account
 
 | Email           | Password  |
 | :-------------: |:---------:|
-| student1@student1.com | student1     |
+| student1@student1.com | password     |
 
 
 
