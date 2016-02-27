@@ -1,9 +1,9 @@
 class Course < ActiveRecord::Base
-  has_many :enrollments
+  has_many :enrollments,  :dependent => :delete_all
   has_many :students, through: :enrollments
-  has_many :teaches
+  has_many :teaches, :dependent => :delete_all
   has_many :instructors, through: :teaches
-  has_many :cmaterials
+  has_many :cmaterials, :dependent => :delete_all
 
   validates :number, presence: true, length: { maximum: 50 },
             uniqueness: { case_sensitive: false }
