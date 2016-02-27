@@ -29,7 +29,7 @@ class CmaterialsController < ApplicationController
 
     respond_to do |format|
       if @cmaterial.save
-        format.html { redirect_to @cmaterial, notice: 'Cmaterial was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Course material was successfully created.' }
         format.json { render :show, status: :created, location: @cmaterial }
       else
         format.html { render :new }

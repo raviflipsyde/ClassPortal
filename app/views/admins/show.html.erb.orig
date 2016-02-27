@@ -15,11 +15,17 @@
 </div>
 
 <div>
+<<<<<<< Updated upstream
   <h3>Course Management</h3>
+=======
+  <h3 >Course Management</h3>
+>>>>>>> Stashed changes
   <br>
   <%= link_to 'New Course', new_course_path, class: "myButton"  %>
   &nbsp
   <%= link_to 'View Courses', courses_path, class: "myButton" %>
+  &nbsp
+  <%= link_to 'Post grades', edit_enrollment_path, class: "myButton"  %>
   &nbsp
   <%= link_to 'View Requests', '/messages/requests/read',  class: "myButton"  %>
   <br>
@@ -47,6 +53,12 @@
   <%= link_to 'View Students', students_path, class: "myButton"  %>
   <br>
   <br>
+<<<<<<< Updated upstream
+=======
+
+</div>
+
+>>>>>>> Stashed changes
 
 </div>
 

@@ -56,6 +56,7 @@
         <%else%>
             <td><%= link_to 'Show', course,class: "btn btn-sm btn-info" %></td>
             <td><%= link_to 'Enroll', new_enrollment_path,class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Enrollments/Grades', displayenrollmentforcourse_path(course.id), class: "btn btn-sm btn-success" %></td>
         <%end%>
 
       </tr>

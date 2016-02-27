@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 <div class="row">
 
+  <div class="CSSTableGenerator">
+=======
+>>>>>>> Stashed changes
 
     <%= form_for(@admin) do |f| %>
         <% if @admin.errors.any? %>

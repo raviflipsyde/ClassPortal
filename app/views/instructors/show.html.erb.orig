@@ -1,5 +1,9 @@
-
-<h1>Instuctors Homepage</h1>
+<style>
+  body {background-color:#2E2F30;}
+  h1   {color:white;}
+  p    {color:white;}
+</style>
+<h2>Instuctors Homepage</h2>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -47,9 +51,22 @@
   </table>
 
 </div>
+<<<<<<< HEAD
+<%= link_to 'Edit', edit_instructor_path(@instructor), class: "myButton"  %> |
+<%= link_to 'Back', instructors_path, class: "myButton"  %>
+<%= link_to 'New Message', new_message_path %>
+<%= link_to 'Read Messages', messages_path %>
+<%= link_to 'New Request', controller: "messages", action: "newrequest"%>
+=======
+<%= link_to 'New Message', new_message_path,class: "myButton" %>
+<%= link_to 'Read Messages', messages_path,class: "myButton" %>
+>>>>>>> e75ee8258ccf2c5dd7f164096731fc37fc5f387b
 
-<%= link_to 'New Message', new_message_path, class: "myButton"  %>
-<%= link_to 'Read Messages', messages_path, class: "myButton"  %>
-<%= link_to 'New Request', '../messages/request/new', class: "myButton"  %>
 
 
+<br><br>
+Add student to the course<br>
+Remove student to the course<br>
+Add material to course page<br>
+Enroll in a course request<br>
+Post grades <br>
